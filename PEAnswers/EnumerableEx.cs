@@ -16,15 +16,9 @@ namespace PEAnswers
 
         public static bool IsPalindrome(this string s)
         {
-            for (int i = 0; i < s.Length / 2; i++)
-            {
-                if (s[i] != s[s.Length - 1 - i])
-                {
-                    return false;
-                }
-            }
-
-            return true;
+            return Enumerable.Range(0, s.Length / 2)
+                .AsParallel()
+                .All(i => s[i] == s[s.Length - 1 - i]);
         }
 
         #region Permutations
