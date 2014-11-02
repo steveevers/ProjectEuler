@@ -12,7 +12,7 @@ namespace PEAnswers
         {
             return Enumerable
                 .Range(1, 1000000)
-                .Where(n => n.ToString().IsPalindrome() && Convert.ToString(n, 2).IsPalindrome())
+                .Where(n => n == MathEx.Reverse(n) && Convert.ToString(n, 2).IsPalindrome())
                 .Sum();
         }
     }

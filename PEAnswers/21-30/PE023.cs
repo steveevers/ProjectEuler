@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,14 @@ namespace PEAnswers
     {
         public static int Answer()
         {
-            return 0;
+            int max = 28123;
+
+            var abundantNumbers = Enumerable.Range(1, max).Where(i => i.IsAbundant()).ToList();
+            var abundantSums = from a in abundantNumbers
+                               from b in abundantNumbers
+                               select a + b;
+
+            return Enumerable.Range(1, max).Except(abundantSums).Sum();
         }
     }
 }

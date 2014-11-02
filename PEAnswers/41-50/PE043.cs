@@ -10,30 +10,27 @@ namespace PEAnswers
     {
         public static long Answer()
         {
-            var numbers = 9876543210
+            var permutations = 9876543210
                 .Digits()
                 .Permutations()
-                .Select(p => string.Join(string.Empty, p))
-                .Where(n => HasSSDivProperty(n));
+                .Select(p => string.Join(string.Empty, p));
 
-            long l = 0;
-            foreach (var n in numbers)
-            {
-                l += long.Parse(n);
-            }
-
-            return l;
+            return permutations
+                .AsParallel()
+                .Where(n => HasSSDivProperty(n))
+                .Select(n => long.Parse(n))
+                .Sum();
         }
 
+        private static List<int> primes = Sequences.Primes(20).Take(7).ToList();
         public static bool HasSSDivProperty(string s)
         {
-            var primes = Sequences.Primes(20).Take(7);
             var index = 0;
 
             for (int i = 1; i <= s.Length - 3; i++)
             {
                 var n = int.Parse(s.Substring(i, 3));
-                if (n % primes.ElementAt(index) != 0)
+                if (n % primes[index] != 0)
                     return false;
 
                 index++;

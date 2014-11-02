@@ -6,10 +6,10 @@ namespace PETests
     [TestClass]
     public class P031_040
     {
-        [TestMethod, TestCategory("31-40"), TestCategory("Needs Improvement"), Ignore]
+        [TestMethod, TestCategory("31-40")]
         public void PE034()
         {
-            Assert.AreEqual(40730, Performance.Test(PEAnswers.PE034.Answer, TimeSpan.FromSeconds(1.5)));
+            Assert.AreEqual(40730, Performance.Test(PEAnswers.PE034.Answer));
         }
 
         [TestMethod, TestCategory("31-40")]

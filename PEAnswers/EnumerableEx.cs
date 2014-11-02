@@ -8,6 +8,14 @@ namespace PEAnswers
 {
     public static class EnumerableEx
     {
+        public static void AddRange<T>(this HashSet<T> set, IEnumerable<T> items)
+        {
+            foreach (var i in items)
+            {
+                set.Add(i);
+            }
+        }
+
         public static IEnumerable<int> RangeBy(int start, int end, int increment)
         {
             for (int i = start; i <= end; i += increment)

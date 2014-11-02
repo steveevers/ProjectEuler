@@ -13,10 +13,10 @@ namespace PETests
             Assert.AreEqual(70600674, Performance.Test(PEAnswers.PE011.Answer));
         }
 
-        [TestMethod, TestCategory("11-20"), TestCategory("Needs Improvement"), Ignore]
+        [TestMethod, TestCategory("11-20")]
         public void PE012()
         {
-            Assert.AreEqual(76576500, Performance.Test(PEAnswers.PE012.Answer, TimeSpan.FromSeconds(1.5)));
+            Assert.AreEqual(76576500, Performance.Test(PEAnswers.PE012.Answer));
         }
 
         [TestMethod, TestCategory("11-20")]

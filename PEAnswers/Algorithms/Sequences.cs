@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -28,7 +29,21 @@ namespace PEAnswers
             }
         }
 
-        public static IEnumerable<long> Fibonacci(long a, long b)
+        public static IEnumerable<BigInteger> FibonacciBig()
+        {
+            BigInteger a = 1;
+            BigInteger b = 1;
+
+            do
+            {
+                yield return a;
+                BigInteger c = a + b;
+                a = b;
+                b = c;
+            } while (true);
+        }
+
+        public static IEnumerable<long> Fibonacci(long a = 1, long b = 1)
         {
             do
             {

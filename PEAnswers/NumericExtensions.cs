@@ -9,6 +9,21 @@ namespace PEAnswers
 {
     public static class NumericExtensions
     {
+        public static bool IsDeficient(this int i)
+        {
+            return MathEx.DivisorsProper(i).Sum() < i;
+        }
+
+        public static bool IsPerfect(this int i)
+        {
+            return MathEx.DivisorsProper(i).Sum() == i;
+        }
+
+        public static bool IsAbundant(this int i)
+        {
+            return MathEx.DivisorsProper(i).Sum() > i;
+        }
+
         #region Pandigital
 
         public static bool IsPandigital(this int n)
@@ -46,8 +61,7 @@ namespace PEAnswers
 
         public static IEnumerable<int> Digits(this int n)
         {
-            foreach (var c in n.ToString())
-                yield return int.Parse(c.ToString());
+            return n.ToString().Select(c => (int)Char.GetNumericValue(c));
         }
 
         public static IEnumerable<int> Digits(this long n)

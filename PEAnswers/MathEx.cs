@@ -70,6 +70,16 @@ namespace PEAnswers
             }
         }
 
+        public static IEnumerable<int> DivisorsProper(int n)
+        {
+            return Divisors(n).Except(new[] { n });
+        }
+
+        public static IEnumerable<long> DivisorsProper(long n)
+        {
+            return Divisors(n).Except(new[] { n });
+        }
+
         public static int Collatz(int n)
         {
             if (n % 2 == 0)

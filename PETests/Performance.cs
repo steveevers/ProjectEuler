@@ -27,7 +27,7 @@ namespace PETests
 
         public static T Test<T>(Func<T> answer)
         {
-            return Test(answer, TimeSpan.FromSeconds(1));
+            return Test(answer, TimeSpan.FromSeconds(2));
         }
     }
 }
