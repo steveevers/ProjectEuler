@@ -6,10 +6,10 @@ namespace PETests
     [TestClass]
     public class P021_030
     {
-        [TestMethod, TestCategory("21-30"), TestCategory("Needs Improvement"), Ignore]
+        [TestMethod, TestCategory("21-30")]
         public void PE021()
         {
-            Assert.AreEqual(31626, Performance.Test(PEAnswers.PE021.Answer, TimeSpan.FromSeconds(10)));
+            Assert.AreEqual(31626, Performance.Test(PEAnswers.PE021.Answer));
         }
 
         [TestMethod, TestCategory("21-30")]
@@ -24,10 +24,10 @@ namespace PETests
             Assert.AreEqual(4179871, Performance.Test(PEAnswers.PE023.Answer));
         }
 
-        [TestMethod, TestCategory("21-30"), TestCategory("Needs Improvement")]
+        [TestMethod, TestCategory("21-30")]
         public void PE024()
         {
-            Assert.AreEqual(2783915460, Performance.Test(PEAnswers.PE024.Answer, TimeSpan.MaxValue));
+            Assert.AreEqual(2783915460, Performance.Test(PEAnswers.PE024.Answer));
         }
 
         [TestMethod, TestCategory("21-30")]

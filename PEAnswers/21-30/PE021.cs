@@ -12,15 +12,20 @@ namespace PEAnswers
         public static int Answer()
         {
             var d = Util.Memoize<int, int>(n => MathEx.Divisors(n).Where(i => i != n).Sum());
-            var range = Enumerable.Range(1, 9999);
-            var amicablePairs = from a in range
-                                from b in range
-                                where a != b && d(a) == b && d(b) == a
-                                select Tuple.Create(a, b);
-            
-            var amicableNumbers = amicablePairs
-                .SelectMany(t => new List<int>() { t.Item1, t.Item2 })
-                .Distinct();
+            var amicableNumbers = new HashSet<int>();
+            int max = 9999;
+
+            for (int a = 1; a <= max; a++)
+            {
+                for (int b = a; b <= max; b++)
+                {
+                    if (a != b && d(a) == b && d(b) == a)
+                    {
+                        amicableNumbers.Add(a);
+                        amicableNumbers.Add(b);
+                    }
+                }
+            }
 
             return amicableNumbers.Sum();
         }
