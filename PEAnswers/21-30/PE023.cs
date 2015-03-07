@@ -13,12 +13,16 @@ namespace PEAnswers
         {
             int max = 28123;
 
-            var abundantNumbers = Enumerable.Range(1, max).Where(i => i.IsAbundant()).ToList();
-            var abundantSums = from a in abundantNumbers
-                               from b in abundantNumbers
-                               select a + b;
+            var range = Enumerable.Range(1, max).ToList();
+            var abundantNumbers = range.Where(i => i.IsAbundant()).ToList();
+            var abundantSums = new HashSet<int>();
+            abundantSums.AddRange(from a in abundantNumbers
+                                  from b in abundantNumbers
+                                  select a + b);
 
-            return Enumerable.Range(1, max).Except(abundantSums).Sum();
+            return range
+                .Where(i => !abundantSums.Contains(i))
+                .Sum();
         }
     }
 }
