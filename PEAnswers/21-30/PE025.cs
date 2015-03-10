@@ -11,16 +11,9 @@ namespace PEAnswers
     {
         public static int Answer()
         {
-            int index = 0;
-
-            foreach (var f in Sequences.FibonacciBig())
-            {
-                index++;
-                if (f.ToString().Length >= 1000)
-                    break;
-            }
-
-            return index;
+			return Sequences.FibonacciBig()
+				.TakeWhile(f => f.ToString().Length < 1000)
+				.Aggregate(1, (i, _) => ++i);
         }
     }
 }
