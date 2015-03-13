@@ -11,9 +11,9 @@ namespace ProjectEuler
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(PE016.Answer());
+            Console.WriteLine(PE044.Answer());
 
-            Console.ReadKey();
+			while (!Console.KeyAvailable) { }
         }
     }
 }

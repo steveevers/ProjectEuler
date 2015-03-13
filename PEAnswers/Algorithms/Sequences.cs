@@ -65,5 +65,16 @@ namespace PEAnswers
                 yield return c;
             } while (c != 1);
         }
+
+		public static IEnumerable<int> Pentagonal() {
+			int n = 1;
+			do {
+				
+				yield return (n * (3 * n - 1)) / 2;
+				
+				++n;
+
+			} while (true);
+		}
     }
 }

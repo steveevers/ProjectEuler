@@ -57,6 +57,7 @@
     <Compile Include="31-40\PE034.cs" />
     <Compile Include="41-50\PE043.cs" />
     <Compile Include="41-50\PE041.cs" />
+    <Compile Include="41-50\PE044.cs" />
     <Compile Include="Algorithms\Sequences.cs" />
     <Compile Include="Algorithms\Trees.cs" />
     <Compile Include="DataStructures\BinaryTree.cs" />

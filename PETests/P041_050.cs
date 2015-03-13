@@ -17,5 +17,10 @@ namespace PETests
         {
             Assert.AreEqual(16695334890, Performance.Test(PEAnswers.PE043.Answer, TimeSpan.MaxValue));
         }
+
+		[TestMethod, TestCategory("41-50"), TestCategory("Needs Improvement")]
+		public void PE044() {
+			Assert.AreEqual(5482660, Performance.Test(PEAnswers.PE044.Answer, TimeSpan.MaxValue));
+		}
     }
 }
